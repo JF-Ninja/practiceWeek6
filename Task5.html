@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Half of String</title>
+</head>
+<body>
+
+<label for="inputString">Even String:</label>
+<input type="text" id="inputString" required>
+<br><br>
+
+<button onclick="extractFirstHalf()">Get Half</button>
+<br><br>
+
+<p id="result"></p>
+
+<script>
+    function extractFirstHalf() {
+        var input = document.getElementById('inputString').value;
+        
+        var result = first_half(input);
+        document.getElementById('result').innerHTML = "Result: " + result;
+    }
+
+    function first_half(str) {
+        var length = str.length;
+
+        if (length % 2 === 0) {
+            return str.substring(0, length / 2);
+        } else {
+            return "Error: The string length is odd.";
+        }
+    }
+</script>
+
+</body>
+</html>

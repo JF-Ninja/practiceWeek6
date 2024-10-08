@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closest to 100</title>
+</head>
+<body>
+
+<label for="num1">1st number:</label>
+<input type="number" id="num1" required>
+<br><br>
+
+<label for="num2">2nd number:</label>
+<input type="number" id="num2" required>
+<br><br>
+
+<button onclick="findClosest()">Find Closest</button>
+<br><br>
+
+<p id="result"></p>
+
+<script>
+    function findClosest() {
+        var num1 = parseFloat(document.getElementById('num1').value);
+        var num2 = parseFloat(document.getElementById('num2').value);
+
+        if (!isNaN(num1) && !isNaN(num2)) {
+            var result = near_100(num1, num2);
+            document.getElementById('result').innerHTML = "Result: " + result;
+        } else {
+            document.getElementById('result').innerHTML = " Error.";
+        }
+    }
+
+    function near_100(a, b) {
+        var diffA = Math.abs(100 - a);
+        var diffB = Math.abs(100 - b);
+
+        if (diffA < diffB) {
+            return a;
+        } else if (diffB < diffA) {
+            return b;
+        } else {
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>
